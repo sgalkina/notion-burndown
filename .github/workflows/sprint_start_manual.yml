@@ -26,8 +26,8 @@ jobs:
       - name: Commit burndown chart
         continue-on-error: true # not every run is at sprint start, so there may not be a chart
         run: |
-          git config --local user.email "ting.szeying@gmail.com"
-          git config --local user.name "szenius"
+          git config --local user.email "galkina.s.a@gmail.com"
+          git config --local user.name "sgalkina"
           git add ./out
           git commit -m "run: upload new burndown chart (sprint start)"
       - name: Push changes

@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/szenius/notion-burndown.git"
+    "url": "git+https://github.com/sgalkina/notion-burndown.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/szenius/notion-burndown/issues"
+    "url": "https://github.com/sgalkina/notion-burndown/issues"
   },
-  "homepage": "https://github.com/szenius/notion-burndown#readme",
+  "homepage": "https://github.com/sgalkina/notion-burndown#readme",
   "devDependencies": {
     "@vercel/ncc": "^0.33.3",
     "eslint": "^8.12.0",
