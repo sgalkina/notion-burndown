@@ -33,7 +33,7 @@ jobs:
           force: true
       - name: Bump version and push tag
         id: version
-        uses: sgalkina/github-tag-action@1.36.0
+        uses: anothrNick/github-tag-action@1.36.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           WITH_V: false
@@ -42,7 +42,7 @@ jobs:
           INITIAL_VERSION: 1.0.0
       - name: Update Notion property
         continue-on-error: true # allow push to master for changes with no bump
-        uses: sgalkina/notion-update-page@1.1.12
+        uses: szenius/notion-update-page@1.1.12
         with:
           gh-username: "sgalkina"
           gh-token: ${{ secrets.GH_TOKEN }}
