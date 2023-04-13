@@ -21,7 +21,7 @@ jobs:
           NOTION_DB_DAILY_SUMMARY: 360b9a47eb614c5eb5449a09076c40bb
           NOTION_PROPERTY_SPRINT: Sprint
           NOTION_PROPERTY_ESTIMATE: Estimate
-          NOTION_PROPERTY_PATTERN_STATUS_EXCLUDE: Completed|Released
+          NOTION_PROPERTY_PATTERN_STATUS_EXCLUDE: Done|Completed|Released
       - name: Commit burndown chart
         run: |
           git config --local user.email "galkina.s.a@gmail.com"
@@ -31,5 +31,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKENGITHUB_TOKEN }}
           force: true

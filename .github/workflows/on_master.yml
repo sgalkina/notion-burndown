@@ -29,13 +29,13 @@ jobs:
         continue-on-error: true
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
       - name: Bump version and push tag
         id: version
         uses: anothrNick/github-tag-action@1.36.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: false
           RELEASE_BRANCHES: master
           DEFAULT_BUMP: patch
@@ -45,7 +45,7 @@ jobs:
         uses: szenius/notion-update-page@1.1.12
         with:
           gh-username: "sgalkina"
-          gh-token: ${{ secrets.GH_TOKEN }}
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
           notion-key: ${{ secrets.NOTION_KEY }}
           notion-property-name: "Version Tag"
           notion-update-value: "${{ steps.version.outputs.new_tag }}"
