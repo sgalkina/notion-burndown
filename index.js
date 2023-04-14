@@ -87,7 +87,7 @@ const createNewSprintSummary = async (
     },
   });
 
-const getLatestSprintSummary = async (
+const getCurrentSprintSummary = async (
   notion,
   sprintSummaryDb,
   { sprintProp }
@@ -101,13 +101,16 @@ const getLatestSprintSummary = async (
       },
     ],
   });
-  const { properties } = response.results[0];
-  const { Sprint, Start, End } = properties;
-  return {
-    sprint: Sprint.number,
-    start: moment(Start.date.start),
-    end: moment(End.date.start),
-  };
+  response.results.forEach(function(properties){
+    const { Sprint, Start, End } = properties;
+    if (moment().isSameOrAfter(moment(Start.date.start)) && moment().isSameOrBefore(moment(Start.date.end))) {
+      return {
+        sprint: Sprint.number,
+        start: moment(Start.date.start),
+        end: moment(End.date.start),
+      };
+    }
+  });
 };
 
 const countPointsLeftInSprint = async (
@@ -444,7 +447,7 @@ const run = async () => {
   let sprint;
   let start;
   let end;
-  ({ sprint, start, end } = await getLatestSprintSummary(
+  ({ sprint, start, end } = await getCurrentSprintSummary(
     notion.client,
     notion.databases.sprintSummary,
     { sprintProp: notion.options.sprintProp }
