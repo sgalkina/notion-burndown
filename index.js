@@ -101,14 +101,14 @@ const getCurrentSprintSummary = async (
       },
     ],
   });
-  response.results.forEach(function (properties) {
+  response.results.forEach(function (value) {
     log.info(
       JSON.stringify({
         message: "Created new sprint summary",
-        properties,
+        value,
       })
     );
-    const { Sprint, Start, End } = properties;
+    const { Sprint, Start, End } = value.properties;
     if (
       moment().isSameOrAfter(moment(Start.date.start)) &&
       moment().isSameOrBefore(moment(Start.date.end))
