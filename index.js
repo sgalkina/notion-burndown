@@ -101,9 +101,12 @@ const getCurrentSprintSummary = async (
       },
     ],
   });
-  response.results.forEach(function(properties){
+  response.results.forEach(function (properties) {
     const { Sprint, Start, End } = properties;
-    if (moment().isSameOrAfter(moment(Start.date.start)) && moment().isSameOrBefore(moment(Start.date.end))) {
+    if (
+      moment().isSameOrAfter(moment(Start.date.start)) &&
+      moment().isSameOrBefore(moment(Start.date.end))
+    ) {
       return {
         sprint: Sprint.number,
         start: moment(Start.date.start),
