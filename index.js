@@ -105,7 +105,7 @@ const getCurrentSprintSummary = async (
     log.info(
       JSON.stringify({
         message: "Created new sprint summary",
-        properties
+        properties,
       })
     );
     const { Sprint, Start, End } = properties;
