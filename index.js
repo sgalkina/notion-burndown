@@ -101,6 +101,11 @@ const getCurrentSprintSummary = async (
       },
     ],
   });
+  const sprint_result = {
+    sprint: 666,
+    start: moment(),
+    end: moment(),
+  };
   response.results.forEach(function (value) {
     log.info(
       JSON.stringify({
@@ -113,13 +118,12 @@ const getCurrentSprintSummary = async (
       moment().isSameOrAfter(moment(Start.date.start)) &&
       moment().isSameOrBefore(moment(End.date.start))
     ) {
-      return {
-        sprint: Sprint.number,
-        start: moment(Start.date.start),
-        end: moment(End.date.start),
-      };
+      sprint_result.sprint = Sprint.number;
+      sprint_result.start = moment(Start.date.start);
+      sprint_result.end = moment(End.date.start);
     }
   });
+  return sprint_result;
 };
 
 const countPointsLeftInSprint = async (
