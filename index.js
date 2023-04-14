@@ -111,7 +111,7 @@ const getCurrentSprintSummary = async (
     const { Sprint, Start, End } = value.properties;
     if (
       moment().isSameOrAfter(moment(Start.date.start)) &&
-      moment().isSameOrBefore(moment(Start.date.end))
+      moment().isSameOrBefore(moment(End.date.start))
     ) {
       return {
         sprint: Sprint.number,
